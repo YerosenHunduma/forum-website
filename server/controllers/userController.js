@@ -41,7 +41,7 @@ async function register(req, res) {
     // inserting user data into the table
 
     dbConnection.query(
-      "INSERT INTO users( userName, firstName, lastName, email, password) VALUES (?,?,?,?,?) ",
+      "INSERT INTO users( username, firstname, lastname, email, password) VALUES (?,?,?,?,?) ",
       [username, firstname, lastname, email, hashedPassword]
     );
     return res

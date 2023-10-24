@@ -22,15 +22,10 @@ form {
 }
 
 .main {
-  min-height: 500px;
+  min-height: 600px;
   border-radius: 15px;
   background: #fcfbfb;
   box-shadow: 17px 17px 34px #d0d0d0;
-  /* margin: auto; */
-  border-radius: 8px;
-  /* padding-bottom: 120px; */
-  /* box-shadow: 0 1px 1px rgb(0 0 0 / 10%); */
-  width: 350px;
 }
 .p1 {
   text-align: center;
@@ -51,7 +46,6 @@ form {
   margin-bottom: 15px;
   font-family: "Lato", sans-serif;
   text-align: center;
-  margin-left: 7px;
   margin-top: 30px;
 }
 .btn1:hover {
@@ -64,15 +58,14 @@ form {
   color: #ff8500;
   font-size: 15px;
   text-align: center;
-  text-decoration: none;
+
 }
 
 .sideNote2 {
   width: 600px;
 }
 .forTitle {
-  font-size: 20px;
-  margin: 10px auto;
+  font-size: 14px;
   font-family: Lato, sans-serif;
   color: #fe8303;
 }
@@ -88,7 +81,7 @@ p {
   color: #4b456f;
 }
 
-.btn1 {
+.btn2 {
   width: 200px;
   height: 41px;
   background-color: #fe8303;
@@ -100,7 +93,6 @@ p {
   vertical-align: middle;
   border: 1px solid transparent;
   font-size: 1rem;
-  margin-left: 10px;
 }
 .p2 {
   margin-bottom: 20px;
@@ -115,3 +107,48 @@ h1 {
   opacity: 0.65;
   cursor: pointer;
 }
+
+.transition {
+  transition: all 0.2s ease-in-out;
+}
+
+.animation {
+  transform: translateX(-110%);
+  animation: slide-in 0.9s ease 1 forwards alternate;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(-110%);
+    opacity: 0;
+  }
+
+  0%{
+    transform: translateX(-10%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  .showHide2 {
+    margin: -52px 25px 0px 333px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .showHide2 {
+    margin: -52px 25px 0px 200px;
+  }
+}
+
+
+
+
+
+
+

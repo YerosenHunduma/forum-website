@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../Context/Context";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import About from "../About/About";
 import "./Login.css";
 
 import { Icon } from "react-icons-kit";
@@ -69,8 +70,9 @@ function Login() {
   return (
     <>
       <div className="container-fluid login_page">
-        <div className="container p-5 d-md-flex justify-content-between login_container">
-          <div className="main col-12 col-md-6 me-md-2 px-5 d-flex flex-column justify-content-center">
+      <div className="container py-5 d-md-flex justify-content-between login_container">
+        <div className="main col-12 col-md-6 me-md-2 p-5 ">
+          <div className="animation d-flex flex-column justify-content-center">
             <p className="p1">Login to your account</p>
             <p className="p2 text-center">
               Don't have an account?
@@ -96,29 +98,14 @@ function Login() {
               <span onClick={HandleIconChange} className="showHide2">
                 <Icon icon={icon} size={20} />
               </span>
-              <button className="btn1">submit</button>
+              <button className="btn1">Login</button>
             </form>
             <Link to="/signup" className="a3 a1">
               Create an account?
             </Link>
+            </div>
           </div>
-          <div className="sideNote2 container col-12 col-md-6 ms-md-2  mt-sm-5">
-            <p className="forTitle">About</p>
-            <h1>Evangadi Networks</h1>
-            <p>
-              No matter what stage of life you are in,whether you’re <br />
-              just starting elementary school or being promoted to <br />
-              CEO of a Fortune 500 company, you have much to offer to <br />
-              those who are trying to follow in your footsteps.
-            </p>
-            <br />
-            <p>
-              Wheather you are willing to share your knowledge or <br />
-              you are just looking to meet mentors of your own, <br />
-              please start by joining the network here.
-            </p>
-            <button className="btn1">HOW IT WORKS</button>
-          </div>
+          <About/>
         </div>
       </div>
     </>

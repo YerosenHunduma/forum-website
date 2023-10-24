@@ -40,7 +40,7 @@ function Header({ logout }) {
         </div>
       </div>
       {showMenu && (
-        <div className="menu-container container-fluid py-4 d-md-none">
+        <div className="menu-container container-fluid py-4 d-md-none animation">
           <div className="hiddenMenu-container d-flex flex-column d-sm-block d-md-none">
             <div>
               <Link to="/">Home</Link>
