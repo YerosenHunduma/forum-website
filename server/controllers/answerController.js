@@ -27,7 +27,11 @@ async function postAnswer(req, res) {
 }
 async function getAllAnswers(req, res) {
   try {
-    const [answers] = await dbConnection.query("SELECT * FROM answers");
+    const questionid = req.params.questionid;
+    const [answers] = await dbConnection.query(
+      "SELECT * FROM answers WHERE questionid = ?",
+      [questionid]
+    );
     return res.status(StatusCodes.OK).json({ answers });
   } catch (error) {
     console.log(error.message);

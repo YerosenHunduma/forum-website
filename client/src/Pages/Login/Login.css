@@ -60,7 +60,10 @@ form {
   text-align: center;
 
 }
-
+.errMsg{
+  text-align: center;
+  color: red;
+}
 .sideNote2 {
   width: 600px;
 }
@@ -113,7 +116,7 @@ h1 {
 }
 
 .animation {
-  transform: translateX(-110%);
+  transform: translateX(0);
   animation: slide-in 0.9s ease 1 forwards alternate;
 }
 

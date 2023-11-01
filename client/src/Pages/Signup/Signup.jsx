@@ -12,6 +12,7 @@ import { eye } from "react-icons-kit/feather/eye";
 function Signup() {
   const [form, setForm] = useState({});
   const [type, setType] = useState("password");
+  const [err, setError] = useState('')
   const navigate = useNavigate();
 
   const [userData, setuserData] = useContext(UserContext);
@@ -23,10 +24,7 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Sending data to be registered in the database
       await axios.post("http://localhost:5555/api/users/register", form);
-
-      // Once registered, automatically log in by sending the new user info to be logged in
       const loginRes = await axios.post(
         "http://localhost:5555/api/users/login",
         {
@@ -34,28 +32,23 @@ function Signup() {
           password: form.password,
         }
       );
-
-      // Set the global state with the new user info
       setuserData({
         token: loginRes.data.token,
         user: loginRes.data.user,
       });
 
-      // Set localStorage with the token
       localStorage.setItem("auth-token", loginRes.data.token);
 
-      // Navigate to the homepage once the user is signed up
       navigate("/");
     } catch (error) {
-    console.log("problem ==>", error.response.data.msg);
+    setError(error.response.data.msg);
     }
   }
 
-  // To change the type attribute from 'password' to 'text' and vice versa
   const [icon, setIcon] = useState(eyeOff);
-  // To change the icon when clicked
+
   const HandleIconChange = () => {
-    // Event listener for the Password function
+
     if (type === "password") {
       setIcon(eye);
       setType("text");
@@ -77,6 +70,7 @@ function Signup() {
               Sign in
             </Link>
           </p>
+          <p className="errMsg">{err}</p>
           <form onSubmit={handleSubmit} >
             <input
               className="in11 mr-1"

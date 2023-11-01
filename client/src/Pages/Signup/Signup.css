@@ -46,6 +46,11 @@ form {
   text-align: center;
   color: #2d385e;
 }
+
+.errMsg{
+  text-align: center;
+  color: red;
+}
 .a22 {
   padding: 0 3px;
   color: #ff8500;
@@ -112,7 +117,7 @@ form {
 }
 
 .animation {
-  transform: translateX(-110%);
+  transform: translateX(0);
   animation: slide-in 0.9s ease 1 forwards alternate;
 }
 

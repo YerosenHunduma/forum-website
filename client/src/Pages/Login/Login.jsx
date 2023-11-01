@@ -16,6 +16,7 @@ function Login() {
   const [type, setType] = useState("password");
   // to change type attribute from 'password' to 'text' and vice versa
   const [icon, setIcon] = useState(eyeOff);
+  const [err, setError] = useState('')
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -46,7 +47,7 @@ function Login() {
       navigate("/");
     } catch (err) {
       console.log("Problem", err.response.data.msg);
-      alert(err.response.data.msg);
+      setError(err.response.data.msg);
     }
   };
 
@@ -80,6 +81,7 @@ function Login() {
                 Create a new account
               </Link>
             </p>
+            <p className="errMsg">{err}</p>
             <form onSubmit={handleSubmit}>
               <input
                 className="in1"

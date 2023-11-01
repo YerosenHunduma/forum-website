@@ -23,12 +23,12 @@ async function register(req, res) {
     if (user.length > 0) {
       return res
         .status(StatusCodes.BAD_REQUEST)
-        .json({ msg: "user already registered" });
+        .json({ msg: "user already exists" });
     }
 
     // check password length
 
-    if (password.length <= 8)
+    if (password.length < 8)
       return res
         .status(400)
         .json({ msg: "Password must be at least 8 characters." });
@@ -65,22 +65,22 @@ async function login(req, res) {
   }
   try {
     const [user] = await dbConnection.query(
-      "SELECT username,userid, password FROM users WHERE  email = ?",
+      "SELECT username, userid, password FROM users WHERE email = ?",
       [email]
     );
 
     if (user.length == 0) {
       return res
         .status(StatusCodes.BAD_REQUEST)
-        .json({ msg: "Invalid credential" });
+        .json({ msg: "Invalid credentials" });
     }
 
-    // decrypt and compare password
-    const isMatch = bcrypt.compare(password, user[0].password);
+    const isMatch = await bcrypt.compare(password, user[0].password); // Await the comparison
+
     if (!isMatch) {
       return res
         .status(StatusCodes.BAD_REQUEST)
-        .json({ msg: "Invalid credential" });
+        .json({ msg: "Invalid credentials" });
     }
 
     const username = user[0].username;
@@ -90,7 +90,7 @@ async function login(req, res) {
     });
 
     return res.status(StatusCodes.OK).json({
-      msg: "user logged in successfully",
+      msg: "User logged in successfully",
       token,
       user: { username, userid },
     });
@@ -98,7 +98,7 @@ async function login(req, res) {
     console.log(error.message);
     return res
       .status(StatusCodes.INTERNAL_SERVER_ERROR)
-      .json({ msg: "Something wents wrong, please try again later" });
+      .json({ msg: "Something went wrong, please try again later" });
   }
 }
 function checkUser(req, res) {

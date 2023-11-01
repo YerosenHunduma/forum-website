@@ -38,5 +38,9 @@
   color: rgba(213, 213, 213, 0.6);
 }
 .Contact-Info {
-  padding-bottom: 50px;
+  padding-bottom: 30px;
+}
+
+.Contact-Info>.titlee{
+  padding-bottom: 30px;
 }
