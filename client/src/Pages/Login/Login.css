@@ -58,15 +58,12 @@ form {
   color: #ff8500;
   font-size: 15px;
   text-align: center;
-
 }
-.errMsg{
+.errMsg {
   text-align: center;
   color: red;
 }
-.sideNote2 {
-  width: 600px;
-}
+
 .forTitle {
   font-size: 14px;
   font-family: Lato, sans-serif;
@@ -103,10 +100,9 @@ p {
 h1 {
   margin-bottom: 20px;
 }
-.showHide2 {
-  display: flex;
-  justify-content: flex-end;
-  margin: -52px 25px 0px 360px;
+.showHide {
+  margin-top: 10px;
+  margin-left: -30px;
   opacity: 0.65;
   cursor: pointer;
 }
@@ -126,7 +122,7 @@ h1 {
     opacity: 0;
   }
 
-  0%{
+  0% {
     transform: translateX(-10%);
     opacity: 0;
   }
@@ -135,7 +131,6 @@ h1 {
     opacity: 1;
   }
 }
-
 
 @media screen and (min-width: 768px) {
   .showHide2 {
@@ -148,10 +143,3 @@ h1 {
     margin: -52px 25px 0px 200px;
   }
 }
-
-
-
-
-
-
-

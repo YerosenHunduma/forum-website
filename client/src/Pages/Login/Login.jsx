@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../Context/Context";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-import About from "../About/About";
+import axios from "../../axios";
+import About from "../../components/About/About";
 import "./Login.css";
 
 import { Icon } from "react-icons-kit";
@@ -16,7 +16,7 @@ function Login() {
   const [type, setType] = useState("password");
   // to change type attribute from 'password' to 'text' and vice versa
   const [icon, setIcon] = useState(eyeOff);
-  const [err, setError] = useState('')
+  const [err, setError] = useState("");
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -26,13 +26,10 @@ function Login() {
     e.preventDefault();
     try {
       // Sending user data to the database to be logged in
-      const loginRes = await axios.post(
-        "http://localhost:5555/api/users/login",
-        {
-          email: form.email,
-          password: form.password,
-        }
-      );
+      const loginRes = await axios.post("/users/login", {
+        email: form.email,
+        password: form.password,
+      });
 
       // Update global state with response from the backend (user-info)
       setuserData({
@@ -71,43 +68,46 @@ function Login() {
   return (
     <>
       <div className="container-fluid login_page">
-      <div className="container py-5 d-md-flex justify-content-between login_container">
-        <div className="main col-12 col-md-6 me-md-2 p-5 ">
-          <div className="animation d-flex flex-column justify-content-center">
-            <p className="p1">Login to your account</p>
-            <p className="p2 text-center">
-              Don't have an account?
-              <Link to="/signup" className="a3">
-                Create a new account
+        <div className="container py-5 d-md-flex justify-content-between login_container">
+          <div className="main col-12 col-md-6 me-md-2 p-5 ">
+            <div className="animation d-flex flex-column justify-content-center">
+              <p className="p1">Login to your account</p>
+              <p className="p2 text-center">
+                Don't have an account?
+                <Link to="/signup" className="a3">
+                  Create a new account
+                </Link>
+              </p>
+              <p className="errMsg">{err}</p>
+              <form onSubmit={handleSubmit}>
+                <input
+                  className="in1"
+                  type="email"
+                  name="email"
+                  onChange={handleChange}
+                  placeholder="Your Email"
+                />
+                <div class="d-flex">
+                  <input
+                    class="in11"
+                    name="password"
+                    onChange={handleChange}
+                    type={type}
+                    placeholder="Password"
+                  />
+                  <span class="showHide ">
+                    <Icon icon={icon} size={20} onClick={HandleIconChange} />
+                  </span>
+                </div>
+
+                <button className="btn1">Login</button>
+              </form>
+              <Link to="/signup" className="a3 a1">
+                Create an account?
               </Link>
-            </p>
-            <p className="errMsg">{err}</p>
-            <form onSubmit={handleSubmit}>
-              <input
-                className="in1"
-                type="email"
-                name="email"
-                onChange={handleChange}
-                placeholder="Your Email"
-              />
-              <input
-                className="in1"
-                type={type}
-                name="password"
-                onChange={handleChange}
-                placeholder="Your Password"
-              />
-              <span onClick={HandleIconChange} className="showHide2">
-                <Icon icon={icon} size={20} />
-              </span>
-              <button className="btn1">Login</button>
-            </form>
-            <Link to="/signup" className="a3 a1">
-              Create an account?
-            </Link>
             </div>
           </div>
-          <About/>
+          <About />
         </div>
       </div>
     </>

@@ -6,9 +6,9 @@ const Answer = ({ answer, username }) => {
   return (
     <div>
       <hr />
-      <div className="d-md-flex align-items-center justify-space-between">
+      <div className="di d-md-flex align-items-center justify-space-between">
         <div className="d-flex flex-md-column">
-          <BiUserCircle className="avatar" />
+          <BiUserCircle className="user" />
           <h6 className="align-self-center ms-2 ms-md-0">{username}</h6>
         </div>
         <div className="ms-md-5">

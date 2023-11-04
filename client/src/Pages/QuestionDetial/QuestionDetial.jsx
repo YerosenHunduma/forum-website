@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import axios from "../../axios";
 import "./QuestionDetial.css";
 import PostAnswer from "../../components/postAnswer/PostAnswer";
 import Answer from "../../components/Answer/Answer";
@@ -17,14 +17,11 @@ function QuestionDetail() {
   const retrieveQuestionById = async () => {
     try {
       console.log(params.id);
-      const { data } = await axios.get(
-        `http://localhost:5555/api/questions/${params.id}`,
-        {
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-        }
-      );
+      const { data } = await axios.get(`/questions/${params.id}`, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
       setQuestion(data.question);
       console.log(question);
       console.log(question.questionid);
@@ -48,14 +45,11 @@ function QuestionDetail() {
   const answersByQuestionId = async () => {
     try {
       console.log(question.questionid);
-      const { data } = await axios.get(
-        `http://localhost:5555/api/answers/${question.questionid}`,
-        {
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-        }
-      );
+      const { data } = await axios.get(`/answers/${question.questionid}`, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
       // Reverse the answers array to display the latest answer at the top
       setAnswers(data.answers.reverse());
       console.log(answers);

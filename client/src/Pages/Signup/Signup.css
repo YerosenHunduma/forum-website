@@ -47,7 +47,7 @@ form {
   color: #2d385e;
 }
 
-.errMsg{
+.errMsg {
   text-align: center;
   color: red;
 }
@@ -86,9 +86,8 @@ form {
   box-shadow: 17px 17px 34px #d0d0d0;
 }
 .showHide {
-  display: flex;
-  justify-content: flex-end;
-  margin: -52px 45px 0px 455px;
+  margin-top: 10px;
+  margin-left: -30px;
   opacity: 0.65;
   cursor: pointer;
 }
@@ -126,7 +125,7 @@ form {
     transform: translateX(-110%);
     opacity: 0;
   }
-  0%{
+  0% {
     transform: translateX(-10%);
     opacity: 0;
   }

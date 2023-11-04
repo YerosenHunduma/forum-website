@@ -1,0 +1,40 @@
+.about_container {
+  align-items: center;
+}
+.forTitle {
+  font-size: 20px;
+  margin: 10px auto;
+  font-family: Lato, sans-serif;
+  color: #fe8303;
+}
+h1 {
+  font-size: 45px;
+  color: #4b456f;
+  font-weight: 600;
+  line-height: 52px;
+}
+p {
+  font-size: 15px;
+  font-family: Lato, sans-serif;
+  color: #4b456f;
+}
+
+.btn2 {
+  width: 200px;
+  height: 41px;
+  background-color: #fe8303;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 400px;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  font-size: 1rem;
+}
+.p2 {
+  margin-bottom: 20px;
+}
+h1 {
+  margin-bottom: 20px;
+}

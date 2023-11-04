@@ -1,7 +1,6 @@
-.avatar {
-  /* width: 90px;
-  height: 90px; */
-  background-color: #fff;
+.user {
+  width: 90px;
+  height: 90px;
   padding-top: 0px;
   transition: transform 0.5s ease;
 }

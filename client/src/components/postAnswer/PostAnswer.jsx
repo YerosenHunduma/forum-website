@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import "./postAnswer.css";
+import { FaHandPointRight } from "react-icons/fa";
 
 function PostAnswer({ questionId }) {
   const params = useParams();
@@ -43,7 +44,7 @@ function PostAnswer({ questionId }) {
       >
         <h3 className="">Answer The Top Question</h3>
         <Link to="/" className="text-decoration-none text-reset cursor-pointer">
-          Go to Question page
+          <FaHandPointRight /> Go to back Home page
         </Link>
         <textarea
           onChange={handleChange}

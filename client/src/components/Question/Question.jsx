@@ -7,7 +7,7 @@ function Question({ question, username }) {
   return (
     <div className=" di d-md-flex align-items-center justify-space-between">
       <div className="d-flex flex-md-column avatar-container">
-        <BiUserCircle className="avatar" />
+        <BiUserCircle className="user" />
         <h6 className="align-self-center ms-2 ms-md-0 text-center">
           {username}
         </h6>

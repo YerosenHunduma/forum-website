@@ -3,7 +3,7 @@ import { UserContext } from "../../Context/Context";
 import { Link, useNavigate } from "react-router-dom";
 import Question from "../../components/Question/Question";
 import "./Home.css";
-import axios from "axios";
+import axios from "../../axios";
 
 function Home() {
   const [userData, setUserData] = useContext(UserContext);
@@ -16,7 +16,7 @@ function Home() {
 
   const Questions = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5555/api/questions/", {
+      const { data } = await axios.get("/questions/", {
         headers: {
           Authorization: "Bearer " + token,
         },
